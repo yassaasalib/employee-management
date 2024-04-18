@@ -7,4 +7,5 @@
  body {
   margin: 0;
 }
+@import './styles.css';
 </style>
