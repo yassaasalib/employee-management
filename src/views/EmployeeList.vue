@@ -27,42 +27,41 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      employees: [],
-      occupationFilter: ''
-    };
-  },
-  mounted() {
-    this.fetchEmployees();
-  },
-  methods: {
-    async fetchEmployees() {
-      try {
-        const response = await fetch('/data/employees.json');
-        const data = await response.json();
-        this.employees = data.Employees;
-      } catch (error) {
-        console.error('Error fetching employees:', error);
-        // Handle error: show a message to the user or log it
+  export default {
+    data() {
+      return {
+        employees: [],
+        occupationFilter: ''
+      };
+    },
+    mounted() {
+      this.fetchEmployees();
+    },
+    methods: {
+      async fetchEmployees() {
+        try {
+          const response = await fetch('/data/employees.json');
+          const data = await response.json();
+          this.employees = data.Employees;
+        } catch (error) {
+          console.error('Error fetching employees:', error);
+        }
+      },
+      navigateToDetails(id) {
+        this.$router.push({ name: 'employee-details', params: { id } });
       }
     },
-    navigateToDetails(id) {
-      this.$router.push({ name: 'employee-details', params: { id } });
-    }
-  },
-  computed: {
-    filteredEmployees() {
-      if (!this.occupationFilter.trim()) {
-        return this.employees; // Return all employees if no filter is applied
-      } else {
-        const filter = this.occupationFilter.trim().toLowerCase();
-        return this.employees.filter(employee =>
-          employee.Occupation.toLowerCase().includes(filter)
-        );
+    computed: {
+      filteredEmployees() {
+        if (!this.occupationFilter.trim()) {
+          return this.employees;
+        } else {
+          const filter = this.occupationFilter.trim().toLowerCase();
+          return this.employees.filter(employee =>
+            employee.Occupation.toLowerCase().includes(filter)
+          );
+        }
       }
     }
-  }
-};
+  };
 </script>
