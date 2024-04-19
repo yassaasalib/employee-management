@@ -2,6 +2,8 @@
   <div id="header__spacer"></div>
   <div id="header">
     <div id="header__input">
+      <!-- <fa-icon id="header__input--search" [icon]="faMagnifyingGlass"></fa-icon> -->
+      <span id="header__input--search" class="material-symbols-outlined">search</span>
       <input type="text" v-model="occupationFilter" placeholder="Filter by occupation...">
     </div>
   </div>

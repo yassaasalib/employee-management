@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 #header {
 	float: left;
 	display: flex;
@@ -13,6 +15,7 @@
 
 #header__input {
 	float: right;
+	display: flex;
 	margin: 0;
 	padding: 0 10px;
 	border: 1px solid #000;
@@ -20,11 +23,12 @@
 	color: #585858;
 	background: #fff;
 	outline: none;
+	align-items: center;
 }
   
 #header__input--search {
 	color: #585858;
-	font-size: 16px;
+	font-size: 22px;
 	padding-right: 20px;
 }
 
@@ -50,14 +54,14 @@
 .employee-list-holder {
 	float: left;
 	display: flex;
-	padding: 0;
+	padding: 50px 0;
 	width: 100%;
 	justify-content: center;
 }
 
 #header__input.bigger {
 	width: 260px;
-	font-size: 16px;
+	font-size: 22px;
 }
 
 .employee-list {
@@ -68,6 +72,9 @@
 .employee-list table {
 	width: 100%;
 	border-collapse: collapse;
+	font-family: 'expressway', sans-serif;
+	font-weight: 300;
+	color: #585858;
 }
 
 .employee-list th, .employee-list td {
@@ -78,6 +85,7 @@
 
 .employee-list th {
 	background-color: #f2f2f2;
+	font-family: 'Roboto', sans-serif;
 }
 
 .employee-list tbody tr:hover {

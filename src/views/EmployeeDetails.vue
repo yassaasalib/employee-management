@@ -1,22 +1,26 @@
 <template>
-  <div>
-    <h1>Employee Details</h1>
-    <div v-if="employee">
-      <p>Name: {{ employee.FirstName }} {{ employee.LastName }}</p>
-      <p>Gender: {{ employee.Gender }}</p>
-      <p>Occupation: {{ employee.Occupation }}</p>
-      <p>Date of Birth: {{ employee.DateOfBirth }}</p>
-      <p>Employment Date: <input type="date" v-model="employmentDate"></p>
-      <p>Termination Date: <input type="date" v-model="terminationDate"></p>
-      <p>{{ employmentDateMessage }}</p>
-      <p>{{ terminationDateMessage }}</p>
-      <!-- Add other details as needed -->
-    </div>
-    <div v-else>
-      <p>Loading...</p>
+  <div class="employee-details">
+    <div class="card">
+      <div v-if="employee">
+        <p><strong>Name:</strong> {{ employee.FirstName }} {{ employee.LastName }}</p>
+        <p><strong>Gender:</strong> {{ employee.Gender }}</p>
+        <p><strong>Occupation:</strong> {{ employee.Occupation }}</p>
+        <p><strong>Date of Birth:</strong> {{ employee.DateOfBirth }}</p>
+        <p><strong>Employment Date:</strong> <input type="date" v-model="employmentDate" class="input-field"></p>
+        <p><strong>Termination Date:</strong> <input type="date" v-model="terminationDate" class="input-field"></p>
+        <div class="message-box">
+          <p class="message">{{ employmentDateMessage }}</p>
+          <p class="message">{{ terminationDateMessage }}</p>
+        </div>
+      </div>
+      <div v-else>
+        <p>Loading...</p>
+      </div>
     </div>
   </div>
 </template>
+
+
 
 <script>
 export default {
@@ -69,3 +73,45 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+
+.employee-details {
+  display: flex;
+  float: left;
+  width: 100%;
+  height: 100vh;
+  justify-content: center;
+  align-items: center
+}
+
+.card {
+  max-width: 600px;
+  padding: 20px;
+  border-radius: 10px;
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+	box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
+  background-color: #f9f9f9;
+}
+
+.input-field {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box
+}
+
+.message-box {
+  margin-top: 10px;
+}
+
+.message {
+  color: #333;
+  background-color: #f0f0f0;
+  padding: 8px;
+  border-radius: 4px;
+  margin-bottom: 5px;
+}
+</style>
