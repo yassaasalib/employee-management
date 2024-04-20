@@ -7,11 +7,9 @@
         <p><strong>Occupation:</strong> {{ employee.Occupation }}</p>
         <p><strong>Date of Birth:</strong> {{ employee.DateOfBirth }}</p>
         <p><strong>Employment Date:</strong> <input type="date" v-model="employmentDate" class="input-field"></p>
+        <p class="message">{{ employmentDateMessage }}</p>
         <p><strong>Termination Date:</strong> <input type="date" v-model="terminationDate" class="input-field"></p>
-        <div class="message-box">
-          <p class="message">{{ employmentDateMessage }}</p>
-          <p class="message">{{ terminationDateMessage }}</p>
-        </div>
+        <p class="message">{{ terminationDateMessage }}</p>
       </div>
       <div v-else>
         <p>Loading...</p>
